@@ -28,12 +28,6 @@ gallagyImages.innerHTML = imgMarkup
 
 gallagyImages.addEventListener("click", onImgClick)
 
-// gallagyImages.addEventListener("keydown", (event) => {
-//   if (event.code === "Escape") {
-//     instance.close()
-//   }
-// })
-
 function onImgClick(event) {
   event.preventDefault()
 
@@ -44,9 +38,11 @@ function onImgClick(event) {
     <img src="${event.target.dataset.source}" width="800" height="600">
 `)
   instance.show()
-  gallagyImages.addEventListener("keydown", (event) => {
+  window.addEventListener("keydown", onCloseImg)
+  function onCloseImg(event) {
     if (event.code === "Escape") {
       instance.close()
+      window.removeEventListener("keydown", onCloseImg)
     }
-  })
+  }
 }
