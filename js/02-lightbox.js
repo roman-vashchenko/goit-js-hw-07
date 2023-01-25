@@ -20,12 +20,4 @@ const imgMarkup = createGallaryMarkup(galleryItems)
 
 gallagyImages.innerHTML = imgMarkup
 
-gallagyImages.addEventListener("click", onImgClick)
-
-function onImgClick(event) {
-  event.preventDefault()
-  if (event.target.nodeName !== "IMG") {
-    return
-  }
-  const lightbox = new SimpleLightbox(".gallery a", { captionDelay: 250 })
-}
+const lightbox = new SimpleLightbox(".gallery a", { captionDelay: 250 })
